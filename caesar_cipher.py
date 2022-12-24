@@ -19,13 +19,13 @@ def pullKey():
             print("Value has to fall in range 1 and 26")
             sys.exit(0)  #provides a zero error code for shell 
 
-def decipher(message, key, mode):
+def decipher(no_change, msg, key):
     decoded = ""
     
-    if mode == 1:
+    if no_change == 1:
         key = -key
 
-    for symbol in message:              #message being interpreted as int. FIX
+    for symbol in msg:              
         if symbol.isalpha():
             number = ord(symbol)
             number += key
@@ -50,15 +50,17 @@ def decipher(message, key, mode):
 bool_input = "y" 
 
 while bool_input:
-    print("""Select action that you want:
+    print("""
+Select action that you want:
           
-        1) Decrypt
-        2) Encrypt
-        3) Decrypt (with no knowm shift)
-        4) Leave program :)
-        """)
+1) Decrypt
+2) Encrypt
+3) Decrypt (with no knowm shift)
+4) Leave program :)
+        
+""")
     
-    usr_input = int(input("Enter a number:" ))
+    usr_input = int(input("Select an option:"))
     print(usr_input)
     
     if usr_input == 1 or usr_input == 2:
@@ -71,7 +73,7 @@ while bool_input:
         
     elif usr_input == 3:
         msg = inputMsg()
-        print("Number of attempts for decoding: \n")
+        print("List of attempted decodes: \n")
         
         for i in range(1, 26):
             print(f"The shift = {i}: ", end = " ")
@@ -82,9 +84,9 @@ while bool_input:
         sys.exit(0)     #provides a zero error code for shell
     
     else:
-        ("Please try again :)")
+        ("Please try again :(")
     
-    bool_input = input("Wanna continue? (y/n): ")
+    bool_input = input('Type any key + "enter" to go back to main menu: ')
         
 
         
