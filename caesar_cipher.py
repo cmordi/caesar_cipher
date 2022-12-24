@@ -4,7 +4,7 @@ import sys
 
 def inputMsg():
     msg = input("Please input your message: ")
-    return msg
+    return msg  #might be something wrong with this line
 
 def pullKey():
     start = 0 
@@ -17,7 +17,7 @@ def pullKey():
             return user_input
         else:
             print("Value has to fall in range 1 and 26")
-            sys.exit(0)  #provides a zero error code for shell
+            sys.exit(0)  #provides a zero error code for shell 
 
 def decipher(message, key, mode):
     decoded = ""
@@ -25,7 +25,7 @@ def decipher(message, key, mode):
     if mode == 1:
         key = -key
 
-    for symbol in message:
+    for symbol in message:              #message being interpreted as int. FIX
         if symbol.isalpha():
             number = ord(symbol)
             number += key
@@ -65,7 +65,7 @@ while bool_input:
         msg = inputMsg()
         pk = pullKey()
         
-        print("The  message is: ")
+        print("The message is: ")
         
         decipher(usr_input, msg, pk)
         
